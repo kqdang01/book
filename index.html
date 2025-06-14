@@ -15,14 +15,39 @@
         <h1>My Library</h1>
         <div class="gridContainer">
             <div class="card">
+                <button class="delete"></button>
                 <div class="imgDiv"></div>
                 <p class="title">Hatchet</p>
-                <p class="author"><img height="30px" src="./svg/pen.svg">Gary Paulsen</p>
-                <p class="pages"><img height="30px" src="./svg/book-open-page-variant.svg">273</p>
-                <button class="checkbox"></button>
+                <p class="author"><img src="./svg/pen.svg">Gary Paulsen</p>
+                <p class="pages"><img src="./svg/book-open-page-variant.svg">273</p>
+                <button class="checkbox whiteCheckbox"></button>
             </div>
             <button class="addBook"><img src="./svg/plus-circle.svg"></button>
         </div>
      </div>
+
+     <dialog>
+        <button class="close"></button>
+        <h1>Enter your book information!</h1>
+        <form>
+            <p>
+                <label for="bookTitle">Title:</label>
+                <input id="bookTitle" type="text">
+            </p>
+            <p>
+                <label for="bookAuthor">Author:</label>
+                <input id="bookAuthor" type="text">
+            </p>
+            <p>
+                <label for="numPages"># of Pages:</label>
+                <input id="numPages" type="number">
+            </p>
+            <div>
+                <p>Have you read it yet?</p>
+                <button type="button" class="blackCheckbox"></button>
+            </div>
+            <button class="submitButton">Submit</button>
+        </form>
+     </dialog>
 </body>
 </html>

@@ -78,6 +78,7 @@ body {
 .card {
   display: flex;
   flex-direction: column;
+  position: relative;
   height: 350px;
   width: 250px;
   background-color: rgb(255,255,255,0.3);
@@ -90,6 +91,11 @@ body {
 .card p {
   display: flex;
   gap: 10px;
+  font-size: 20px;
+}
+
+.card img {
+  height: 30px;
 }
 
 .card .title {
@@ -103,8 +109,8 @@ body {
 
 .imgDiv {
   border-radius: 15px;
+  background-color: rgb(255, 255, 255, 0.2);
   height: 50%;
-  background-image: url(https://m.media-amazon.com/images/I/91MFewhSB1L._AC_UF1000,1000_QL80_.jpg);
   background-size: 100% 200%;
 }
 
@@ -118,8 +124,106 @@ body {
   width: 30px;
   background-color: transparent;
   border: none;
-  background-image: url(./svg/checkbox-blank-outline.svg);
   transition-duration: 0.2s;
+}
+
+dialog[open] {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  justify-self: center;
+  align-self: center;
+  background-color: rgb(255, 255, 255, 0.5);
+  border-radius: 10px;
+  border: none;
+}
+
+dialog h1 {
+  margin-bottom: 10px;
+}
+
+dialog form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+dialog input {
+  border-radius: 7px;
+  border: 2px solid black;
+  text-indent: 5px;
+  background-color: transparent;
+  outline: none;
+}
+
+dialog p {
+  display: flex;
+  flex-direction: column;
+}
+
+dialog button {
+  height: 30px;
+  width: 30px;
+  background-color: transparent;
+  border: none;
+  transition-duration: 0.2s;
+}
+
+.submitButton {
+  width: auto;
+  border: 2px solid black;
+  border-radius: 7px;
+}
+
+.close {
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  top: 2px;
+  right: 2px;
+  background-image: url(./svg/black-alpha-x-circle.svg);
+}
+
+.close:hover {
+  opacity: 0.5;
+  transform: translate(0);
+}
+
+dialog button:hover {
+  transform: translateY(-3px);
+}
+
+.whiteCheckbox {
+  background-image: url(./svg/checkbox-blank-outline.svg);
+}
+
+.whiteCheckedBox {
+  background-image: url(./svg/checkbox-marked-outline.svg);
+}
+
+.blackCheckbox {
+  background-image: url(./svg/black-checkbox-blank-outline.svg);
+}
+
+.blackCheckedBox {
+  background-image: url(./svg/black-checkbox-marked-outline.svg);
+}
+
+.delete {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  height: 30px;
+  width: 30px;
+  background-image: url(./svg/alpha-x-circle.svg);
+  background-color: transparent;
+  border: none;
+  transition-duration: 0.2s;
+}
+
+.delete:hover {
+  transform: translateY(-3px);
+  opacity: 0.5;
 }
 
 .checkbox:hover {
@@ -140,10 +244,6 @@ body {
   transition-duration: 0.2s;
 }
 
-.checked {
-  background-image: url(./svg/checkbox-marked-outline.svg);
-}
-
 .addBook img {
   height: 20%;
 }
@@ -162,4 +262,8 @@ body {
 
 input[type="checkbox"] {
   border: 6px solid yellow;
+}
+
+.default {
+  background-image: url(./dog.jpg);
 }
