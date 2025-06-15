@@ -14,14 +14,6 @@
      <div class="outerContainer">
         <h1>My Library</h1>
         <div class="gridContainer">
-            <div class="card">
-                <button class="delete"></button>
-                <div class="imgDiv"></div>
-                <p class="title">Hatchet</p>
-                <p class="author"><img src="./svg/pen.svg">Gary Paulsen</p>
-                <p class="pages"><img src="./svg/book-open-page-variant.svg">273</p>
-                <button class="checkbox whiteCheckbox"></button>
-            </div>
             <button class="addBook"><img src="./svg/plus-circle.svg"></button>
         </div>
      </div>
@@ -32,21 +24,25 @@
         <form>
             <p>
                 <label for="bookTitle">Title:</label>
-                <input id="bookTitle" type="text">
+                <input id="bookTitle" type="text" required>
             </p>
             <p>
                 <label for="bookAuthor">Author:</label>
-                <input id="bookAuthor" type="text">
+                <input id="bookAuthor" type="text" required>
             </p>
             <p>
                 <label for="numPages"># of Pages:</label>
-                <input id="numPages" type="number">
+                <input min="0" max="9999" id="numPages" type="number" required>
+            </p>
+            <p>
+                <label for="url">Image Url:</label>
+                <input id="url" type="text">
             </p>
             <div>
                 <p>Have you read it yet?</p>
-                <button type="button" class="blackCheckbox"></button>
+                <button type="button" class="check blackCheckbox"></button>
             </div>
-            <button class="submitButton">Submit</button>
+            <button type="submit" class="submitButton">Submit</button>
         </form>
      </dialog>
 </body>

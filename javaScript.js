@@ -4,24 +4,54 @@ const closeDialog = document.querySelector(".close");
 const submitButton = document.querySelector(".submitButton");
 const addBookButton = document.querySelector(".addBook");
 const bookGrid = document.querySelector(".gridContainer");
+const checkButton = document.querySelector(".check")
 
 const bookTitleInput = document.querySelector("#bookTitle");
 const bookAuthorInput = document.querySelector("#bookAuthor");
+const pagesInput = document.querySelector("#numPages");
+const imgInput = document.querySelector("#url");
+
+let check = false;
 
 closeDialog.addEventListener("click", () => dialog.close());
 addBookButton.addEventListener("click",() => dialog.showModal());
 
-submitButton.addEventListener("click", (event) => {
-    event.preventDefault();
-});
+checkButton.addEventListener("click", () => {
+    checkButton.classList.toggle("blackCheckbox");
+    checkButton.classList.toggle("blackCheckedBox");
+    check = !check;
+})
 
-function Book(author, title, pages, checkedOut)
+dialog.addEventListener("submit", (event) => {
+    event.preventDefault();
+    let img = "./dog.jpg";
+    if (imgInput.value)
+    {
+        img = imgInput.value;
+    }
+    const bookObj = new Book(bookAuthorInput.value, bookTitleInput.value, pagesInput.value, check, img);
+    addBookToLibrary(bookObj, library);
+    bookTitleInput.value = "";
+    bookAuthorInput.value = "";
+    pagesInput.value = "";
+    imgInput.value = "";
+    if (check)
+    {
+        checkButton.classList.toggle("blackCheckbox");
+        checkButton.classList.toggle("blackCheckedBox");
+        check = !check;
+    }
+    dialog.close();
+})
+
+function Book(author, title, pages, checkedOut, img)
 {
     if (!new.target) throw "this is a constructor, use new to create a book object"
     this.author = author;
     this.title = title;
     this.pages = pages;
     this.checkedOut = checkedOut;
+    this.img = img;
     this.id = crypto.randomUUID();
 }
 
@@ -48,10 +78,33 @@ function addCard(bookObj)
     title.className = "title";
     author.className = "author";
     pages.className = "pages";
-    readButton.className = "checkbox whiteCheckbox";
+    readButton.className = "checkbox";
 
     author.appendChild(authIcon);
     pages.appendChild(pagesIcon);
+
+    if (bookObj.checkedOut)
+    {
+        readButton.classList.add("whiteCheckedBox");
+    }
+    else
+    {
+        readButton.classList.add("whiteCheckbox");
+    }
+
+    imgDiv.style.backgroundImage = `url(${bookObj.img})`;
+
+    readButton.addEventListener("click", (e) => {
+        readButton.classList.toggle("whiteCheckedBox");
+        readButton.classList.toggle("whiteCheckbox");
+        const book = library[library.indexOf(bookObj)];
+        book.checkedOut = !book.checkedOut;
+    })
+
+    delButton.addEventListener("click", () => {
+        card.remove();
+        library.splice(library.indexOf(bookObj), 1);
+    })
     
     title.textContent = bookObj.title;
     authSpan.textContent = bookObj.author;

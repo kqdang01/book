@@ -42,7 +42,7 @@ body {
     background-color: black;
     color: white;
     font-family: huninn;
-    height: 100%;
+    min-height: 100%;
     justify-content: center;
     align-items: center;
     background-image: linear-gradient(
@@ -60,15 +60,17 @@ body {
     hsl(239deg 95% 62%) 76%,
     hsl(254deg 100% 50%) 100%
   );
+  background-attachment: fixed;
 }
 
 .outerContainer {
     display: flex;
-    flex-flow: column wrap;
+    flex-flow: column;
     gap: 100px;
     width: 70%;
     justify-content: center;
     align-items: center;
+    margin-top: 30px;
 }
 
 .outerContainer h1 {
@@ -112,6 +114,7 @@ body {
   background-color: rgb(255, 255, 255, 0.2);
   height: 50%;
   background-size: 100% 200%;
+  background-repeat: no-repeat;
 }
 
 .card:hover {
@@ -195,18 +198,22 @@ dialog button:hover {
 
 .whiteCheckbox {
   background-image: url(./svg/checkbox-blank-outline.svg);
+  background-repeat: no-repeat;
 }
 
 .whiteCheckedBox {
   background-image: url(./svg/checkbox-marked-outline.svg);
+  background-repeat: no-repeat;
 }
 
 .blackCheckbox {
   background-image: url(./svg/black-checkbox-blank-outline.svg);
+  background-repeat: no-repeat;
 }
 
 .blackCheckedBox {
   background-image: url(./svg/black-checkbox-marked-outline.svg);
+  background-repeat: no-repeat;
 }
 
 .delete {
