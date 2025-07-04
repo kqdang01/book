@@ -44,15 +44,17 @@ dialog.addEventListener("submit", (event) => {
     dialog.close();
 })
 
-function Book(author, title, pages, checkedOut, img)
+class Book
 {
-    if (!new.target) throw "this is a constructor, use new to create a book object"
-    this.author = author;
-    this.title = title;
-    this.pages = pages;
-    this.checkedOut = checkedOut;
-    this.img = img;
-    this.id = crypto.randomUUID();
+    constructor(author, title, pages, checkedOut, img)
+    {
+        this.author = author;
+        this.title = title;
+        this.pages = pages;
+        this.checkedOut = checkedOut;
+        this.img = img;
+        this.id = crypto.randomUUID();
+    }
 }
 
 function addCard(bookObj)
